@@ -6,23 +6,24 @@ const windowsHeight = window.innerHeight;
 //*********************** /global variables
 
 //*********************** scroll for the main body to fade in/out
-function menuScroll() {
-	var main = document.getElementById("main"); //this has to be defined here idk why
+      let vh = window.innerHeight * 0.01;
+      // Set the value in the --vh custom property to the root of the document
+      document.documentElement.style.setProperty('--vh', `${vh}px`);
 
-	if (!main.classList.contains("scrolling")) {
-	    //If the user is not at the top of the page;
-	    if (window.scrollY !== 0) {
-	      main.classList.add("scrolled");
-	    } 
+      //Tab Opacity on Scroll
+      function bodyOpacity() {
+        var mainBody = document.getElementById("Main-Body");
 
-	    //If the user is at the top of the page;
-	    if (window.scrollY === 0) {
-	      main.classList.remove("scrolled");
-	    }
-	}
+        if (window.scrollY < 100) {
+          mainBody.style.opacity = "0.2";
+          mainBody.style.filter = "sepia(100%) hue-rotate(170deg)";
+        } else {
+          mainBody.style.opacity = "1";
+          mainBody.style.filter = "sepia(0%)";
+        }
 }
 
-addEventListener("scroll", menuScroll);
+addEventListener("scroll", bodyOpacity);
 //*********************** /scroll for the main body to fade in/out
 
 //
@@ -116,13 +117,15 @@ for (i = 0; i < image.length; i++) {
 }
 
 function modalOpen() {
-  if(!this.parentNode.classList.contains("open")) {
-    this.parentNode.classList.add("open");
-    this.closest(".item").classList.add("open");
-  } else {
-    this.parentNode.classList.remove("open");
-    this.closest(".item").classList.remove("open");
-  }
+	if(!event.target.classList.contains("next") && !event.target.classList.contains("previous")) {
+		if(!this.parentNode.classList.contains("open")) {
+	    	this.parentNode.classList.add("open");
+	    	this.closest(".item").classList.add("open");
+	  	} else {
+	    	this.parentNode.classList.remove("open");
+	    	this.closest(".item").classList.remove("open");
+	  	}
+	}
 }
 
 //This lets you close them with escape
@@ -158,7 +161,7 @@ for (i = 0; i < image.length; i++) {
 }
 
 //This lets all display images open to a modal view
-var image = document.querySelectorAll("next");
+var image = document.querySelectorAll(".next");
 //add listeners to all of the icons
 for (i = 0; i < image.length; i++) {
   image[i].addEventListener('click', tabRight);
