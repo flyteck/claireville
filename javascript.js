@@ -25,25 +25,22 @@ function menuScroll() {
 addEventListener("scroll", menuScroll);
 //*********************** /scroll for the main body to fade in/out
 
-//Tab Height Variable VH
-  window.addEventListener('resize', () => {
-  let vh = window.innerHeight * 0.01;
-  var body = document.getElementsByTagName('body')[0];
-  document.documentElement.style.setProperty('--vh', `${vh}px`);
+//
+function autoScroll() {
+	//Check scroll direction;
+	var main = document.getElementById("main"); //this has to be defined here idk why
 
-  if (window.pageYOffset + window.innerHeight - (body.offsetTop + body.scrollHeight) > -250) {
-      window.scrollTo({ top: offset, left: 0, behavior: "smooth", });
-  }
-});
+	if(this.oldScroll < this.scrollY) {
+		//scrolling down
+		main.scrollIntoView({ behavior: "smooth", block: "start" })
+		main.classList.add("scrolling");
+	}
 
-  const offset = document.body.scrollHeight;
-  var body = document.getElementsByTagName('body')[0];
+	//set previous scroll location
+	this.oldScroll = this.scrollY;
+}
 
-  window.addEventListener('scrollend', function() {
-  if (window.pageYOffset + window.innerHeight - (body.offsetTop + body.scrollHeight) > -200) {
-      window.scrollTo({ top: offset, left: 0, behavior: "smooth", });
-  }
-});
+addEventListener("scrollend", autoScroll);
 
 //*********************** make the main body scroll inside itself when it's in the main frame
  document.addEventListener('scroll', () => {
@@ -59,6 +56,7 @@ addEventListener("scroll", menuScroll);
 		}
 	}
 })
+
 //*********************** /make the main body scroll inside itself when it's in the main frame
 
  document.addEventListener("DOMContentLoaded", function(e) {
