@@ -37,19 +37,23 @@ var topEdge = main.getBoundingClientRect().top;
 function autoScroll() {
 	var topEdge = main.getBoundingClientRect().top;
 
-	if ((topEdge < 200) && (topEdge !== -0.5)) {
-		main.classList.add("scrolling");
-		main.scrollIntoView({ behavior: "smooth", block: "start" })
-	}
+	if ((topEdge < 200) && (topEdge !== -0.5) && (topEdge !== 0)) {
+		//Check scroll direction;
 
-	if (topEdge == -0.5) {
-		main.classList.remove("scrolling");
-	}
+		if(this.oldScroll < this.scrollY) {
+			//scrolling down
+			main.scrollIntoView({ behavior: "smooth", block: "end" })
+			main.classList.add("scrolling");
+		}
+
+		//set previous scroll location
+		this.oldScroll = this.scrollY;
+		}
 }
 
 addEventListener("scrollend", autoScroll);
 
-//** Auto scroll PLEASE **//
+//** /Auto scroll PLEASE **//
 
 //*********************** make the main body scroll inside itself when it's in the main frame
  document.addEventListener('scroll', () => {
