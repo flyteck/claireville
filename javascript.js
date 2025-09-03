@@ -6,24 +6,26 @@ const windowsHeight = window.innerHeight;
 //*********************** /global variables
 
 //*********************** scroll for the main body to fade in/out
-      let vh = window.innerHeight * 0.01;
-      // Set the value in the --vh custom property to the root of the document
-      document.documentElement.style.setProperty('--vh', `${vh}px`);
+function menuScroll() {
+	var main = document.getElementById("main"); //this has to be defined here idk why
 
-      //Tab Opacity on Scroll
-      function bodyOpacity() {
-        var mainBody = document.getElementById("Main-Body");
+	// Set the value in the --vh custom property to the root of the document
+      main.style.setProperty('--vh', `${vh}px`);
 
-        if (window.scrollY < 100) {
-          mainBody.style.opacity = "0.2";
-          mainBody.style.filter = "sepia(100%) hue-rotate(170deg)";
-        } else {
-          mainBody.style.opacity = "1";
-          mainBody.style.filter = "sepia(0%)";
-        }
+	if (!main.classList.contains("scrolling")) {
+	    //If the user is not at the top of the page;
+	    if (window.scrollY !== 0) {
+	      main.classList.add("scrolled");
+	    } 
+
+	    //If the user is at the top of the page;
+	    if (window.scrollY === 0) {
+	      main.classList.remove("scrolled");
+	    }
+	}
 }
 
-addEventListener("scroll", bodyOpacity);
+addEventListener("scroll", menuScroll);
 //*********************** /scroll for the main body to fade in/out
 
 //
