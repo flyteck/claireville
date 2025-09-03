@@ -100,7 +100,7 @@ h2 ~ ul {
   	overflow: hidden;
   	position: sticky;
   	top: 0;
-  	height: calc(100vh - 12px);
+  	height: calc((var(--vh, 1vh) * 100) - 12px);
   	transition: 600ms ease;
   	overflow: hidden;
   	border: 6px outset #EEDDBF;
@@ -256,7 +256,7 @@ a.button {
 }
 
 .image-box {
-	max-width: 40%;
+	max-width: 40vw;
 	width: 400px;
 	flex: 0 0 400px;
 	padding: 36px 36px 80px;
@@ -299,6 +299,7 @@ a.button {
 	justify-content: center;
 	border-radius: 4px;
 	margin: 5px;
+	z-index: 5;
 }
 
 #gallery-container img {
