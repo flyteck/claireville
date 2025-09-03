@@ -6,7 +6,7 @@ const windowsHeight = window.innerHeight;
 //*********************** /global variables
 const bottom = main.getBoundingClientRect().bottom;
 
-if (windowsHeight > bottom) {
+if (windowsHeight >= bottom) {
 	main.classList.add("top");
 } 
 
@@ -60,7 +60,7 @@ addEventListener("scrollend", autoScroll);
 	var main = document.getElementById("main"); //this has to be defined here idk why
 	const bottom = main.getBoundingClientRect().bottom;
 	  
-	if (windowsHeight > bottom) {
+	if (windowsHeight >= bottom) {
 	   main.classList.add("top");
 	   main.classList.remove("scrolling");
 	} else {
