@@ -9,9 +9,6 @@ const windowsHeight = window.innerHeight;
 function menuScroll() {
 	var main = document.getElementById("main"); //this has to be defined here idk why
 
-	// Set the value in the --vh custom property to the root of the document
-      main.style.setProperty('--vh', `${vh}px`);
-
 	if (!main.classList.contains("scrolling")) {
 	    //If the user is not at the top of the page;
 	    if (window.scrollY !== 0) {
