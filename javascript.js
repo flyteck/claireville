@@ -25,6 +25,25 @@ function menuScroll() {
 addEventListener("scroll", menuScroll);
 //*********************** /scroll for the main body to fade in/out
 
+//Tab Height Variable VH
+  window.addEventListener('resize', () => {
+  let vh = window.innerHeight * 0.01;
+  var body = document.getElementsByTagName('body')[0];
+  document.documentElement.style.setProperty('--vh', `${vh}px`);
+
+  if (window.pageYOffset + window.innerHeight - (body.offsetTop + body.scrollHeight) > -250) {
+      window.scrollTo({ top: offset, left: 0, behavior: "smooth", });
+  }
+});
+
+  const offset = document.body.scrollHeight;
+  var body = document.getElementsByTagName('body')[0];
+
+  window.addEventListener('scrollend', function() {
+  if (window.pageYOffset + window.innerHeight - (body.offsetTop + body.scrollHeight) > -200) {
+      window.scrollTo({ top: offset, left: 0, behavior: "smooth", });
+  }
+});
 
 //*********************** make the main body scroll inside itself when it's in the main frame
  document.addEventListener('scroll', () => {

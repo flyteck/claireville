@@ -11,6 +11,26 @@
 
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
 
+  <script>
+      let vh = window.innerHeight * 0.01;
+      // Set the value in the --vh custom property to the root of the document
+      document.documentElement.style.setProperty('--vh', `${vh}px`);
+
+      //Tab Opacity on Scroll
+      function bodyOpacity() {
+        var mainBody = document.getElementById("Main-Body");
+
+        if (window.scrollY < 100) {
+          mainBody.style.opacity = "0.2";
+          mainBody.style.filter = "sepia(100%) hue-rotate(170deg)";
+        } else {
+          mainBody.style.opacity = "1";
+          mainBody.style.filter = "sepia(0%)";
+        }
+
+      }
+    </script>
+
 </head>
 
 <body><div class="wrap" id="home">
@@ -71,7 +91,7 @@
       </div>
     </div>
 </div>
-  <script src="javascript.js?3"></script>
+  <script src="javascript.js?4"></script>
 </body>
 
 <footer>
