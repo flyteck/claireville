@@ -25,22 +25,6 @@ function menuScroll() {
 addEventListener("scroll", menuScroll);
 //*********************** /scroll for the main body to fade in/out
 
-//
-function autoScroll() {
-	//Check scroll direction;
-	var main = document.getElementById("main"); //this has to be defined here idk why
-
-	if(this.oldScroll < this.scrollY) {
-		//scrolling down
-		main.scrollIntoView({ behavior: "smooth", block: "start" })
-		main.classList.add("scrolling");
-	}
-
-	//set previous scroll location
-	this.oldScroll = this.scrollY;
-}
-
-addEventListener("scrollend", autoScroll);
 
 //*********************** make the main body scroll inside itself when it's in the main frame
  document.addEventListener('scroll', () => {
