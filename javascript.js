@@ -55,6 +55,8 @@ addEventListener("resize", autoScroll);
 
 //** /Auto scroll PLEASE **//
 
+
+
 //*********************** make the main body scroll inside itself when it's in the main frame
  function bodyLock() {
 	var main = document.getElementById("main"); //this has to be defined here idk why
@@ -73,6 +75,7 @@ addEventListener("resize", autoScroll);
 
 addEventListener("scroll", bodyLock);
 addEventListener("touchstart", bodyLock);
+addEventListener("touchend", bodyLock);
 //*********************** /make the main body scroll inside itself when it's in the main frame
 
 
