@@ -6,7 +6,6 @@ const windowsHeight = window.innerHeight;
 //*********************** /global variables
 const bottom = main.getBoundingClientRect().bottom;
 
-
 //*********************** scroll for the main body to fade in/out
 function menuScroll() {
 	var main = document.getElementById("main"); //this has to be defined here idk why
@@ -43,8 +42,6 @@ function autoScroll() {
 			//scrolling down
 			scrollTo.scrollIntoView({ behavior: "smooth", block: "start" });
 			main.classList.add("scrolling");
-			main.classList.add("top");
-			main.style.borderColor = "red";
 		}
 
 		//set previous scroll location
@@ -66,6 +63,7 @@ addEventListener("resize", autoScroll);
 	if (windowsHeight >= bottom) {
 	   main.classList.add("top");
 	   main.classList.remove("scrolling");
+	   main.style.borderColor = "red";
 	} else {
 	  	if(main.classList.contains("top")) {
 	    	main.classList.remove("top");
