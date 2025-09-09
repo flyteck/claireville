@@ -46,7 +46,8 @@ function autoScroll() {
 			//scrolling down
 			scrollTo.scrollIntoView({ behavior: "smooth", block: "start" });
 			main.classList.add("scrolling");
-			classList.add("top");
+			main.classList.add("top");
+			main.style.borderColor = "red";
 		}
 
 		//set previous scroll location
