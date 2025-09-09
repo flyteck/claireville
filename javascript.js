@@ -60,7 +60,7 @@ addEventListener("resize", autoScroll);
 //** /Auto scroll PLEASE **//
 
 //*********************** make the main body scroll inside itself when it's in the main frame
- document.addEventListener('scroll', 'scrollend', () => {
+ document.addEventListener('scroll', 'ontouchstart', () => {
 	var main = document.getElementById("main"); //this has to be defined here idk why
 	const bottom = main.getBoundingClientRect().bottom;
 	  
