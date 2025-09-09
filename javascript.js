@@ -1,7 +1,7 @@
 //*********************** global variables
 
 var main = document.getElementById("main");
-const windowsHeight = window.innerHeight;
+const windowsHeight = window.outerHeight;
 
 //*********************** /global variables
 const bottom = main.getBoundingClientRect().bottom;
