@@ -4,6 +4,11 @@ var main = document.getElementById("main");
 const windowsHeight = window.innerHeight;
 
 //*********************** /global variables
+const bottom = main.getBoundingClientRect().bottom;
+
+if (windowsHeight >= bottom) {
+	main.classList.add("top");
+} 
 
 //*********************** scroll for the main body to fade in/out
 function menuScroll() {
@@ -22,32 +27,44 @@ function menuScroll() {
 	}
 }
 
-addEventListener("scroll", menuScroll);
+addEventListener("scrollend", menuScroll);
+addEventListener("touchend", menuScroll);
 //*********************** /scroll for the main body to fade in/out
 
-//
+//** Auto scroll PLEASE **//
+
+var topEdge = main.getBoundingClientRect().top;
+
 function autoScroll() {
-	//Check scroll direction;
-	var main = document.getElementById("main"); //this has to be defined here idk why
+	var topEdge = main.getBoundingClientRect().top;
+	var scrollTo = document.getElementById("scroll-to");
 
-	if(this.oldScroll < this.scrollY) {
-		//scrolling down
-		main.scrollIntoView({ behavior: "smooth", block: "start" })
-		main.classList.add("scrolling");
-	}
+	if ((topEdge < 200) && (topEdge !== -0.5) && (topEdge !== 0)) {
+		//Check scroll direction;
 
-	//set previous scroll location
-	this.oldScroll = this.scrollY;
+		if(this.oldScroll < this.scrollY) {
+			//scrolling down
+			scrollTo.scrollIntoView({ behavior: "smooth", block: "start" });
+			main.classList.add("scrolling");
+		}
+
+		//set previous scroll location
+		this.oldScroll = this.scrollY;
+		}
 }
 
+addEventListener("touchend", autoScroll);
 addEventListener("scrollend", autoScroll);
+addEventListener("resize", autoScroll);
+
+//** /Auto scroll PLEASE **//
 
 //*********************** make the main body scroll inside itself when it's in the main frame
  document.addEventListener('scroll', () => {
 	var main = document.getElementById("main"); //this has to be defined here idk why
 	const bottom = main.getBoundingClientRect().bottom;
 	  
-	if (windowsHeight > bottom) {
+	if (windowsHeight >= bottom) {
 	   main.classList.add("top");
 	   main.classList.remove("scrolling");
 	} else {
@@ -56,15 +73,15 @@ addEventListener("scrollend", autoScroll);
 		}
 	}
 })
-
 //*********************** /make the main body scroll inside itself when it's in the main frame
 
+//after short delay, add smooth scroll to the body to prevent links w ids from jumping on load
  document.addEventListener("DOMContentLoaded", function(e) {
- //after short delay, add smooth scroll to the body to prevent links w ids from jumping on load
     setTimeout(() => {
     	document.documentElement.style.scrollBehavior = "smooth";
     }, "200");
  });
+
 
  //*********************** Menu
 
