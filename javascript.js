@@ -6,9 +6,6 @@ const windowsHeight = window.innerHeight;
 //*********************** /global variables
 const bottom = main.getBoundingClientRect().bottom;
 
-if (windowsHeight >= bottom) {
-	main.classList.add("top");
-} 
 
 //*********************** scroll for the main body to fade in/out
 function menuScroll() {
