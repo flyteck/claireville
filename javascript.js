@@ -1,7 +1,7 @@
 //*********************** global variables
 
 var main = document.getElementById("main");
-const windowsHeight = window.outerHeight;
+const windowsHeight = window.innerHeight;
 
 //*********************** /global variables
 const bottom = main.getBoundingClientRect().bottom;
@@ -46,6 +46,7 @@ function autoScroll() {
 			//scrolling down
 			scrollTo.scrollIntoView({ behavior: "smooth", block: "start" });
 			main.classList.add("scrolling");
+			bodyLock;
 		}
 
 		//set previous scroll location
