@@ -60,7 +60,7 @@ addEventListener("resize", autoScroll);
 //** /Auto scroll PLEASE **//
 
 //*********************** make the main body scroll inside itself when it's in the main frame
- document.addEventListener('scroll', () => {
+ document.addEventListener('scroll', 'scrollend', () => {
 	var main = document.getElementById("main"); //this has to be defined here idk why
 	const bottom = main.getBoundingClientRect().bottom;
 	  
@@ -74,6 +74,7 @@ addEventListener("resize", autoScroll);
 	}
 })
 //*********************** /make the main body scroll inside itself when it's in the main frame
+
 
 //after short delay, add smooth scroll to the body to prevent links w ids from jumping on load
  document.addEventListener("DOMContentLoaded", function(e) {
