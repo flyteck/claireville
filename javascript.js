@@ -46,7 +46,7 @@ function autoScroll() {
 			//scrolling down
 			scrollTo.scrollIntoView({ behavior: "smooth", block: "start" });
 			main.classList.add("scrolling");
-			bodyLock;
+			classList.add("top");
 		}
 
 		//set previous scroll location
