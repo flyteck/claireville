@@ -27,7 +27,7 @@ function menuScroll() {
 	}
 }
 
-addEventListener("scroll", menuScroll);
+addEventListener("scrollend", menuScroll);
 //*********************** /scroll for the main body to fade in/out
 
 //** Auto scroll PLEASE **//
@@ -36,14 +36,14 @@ var topEdge = main.getBoundingClientRect().top;
 
 function autoScroll() {
 	var topEdge = main.getBoundingClientRect().top;
+	var scrollTo = document.getElementById("scroll-to");
 
 	if ((topEdge < 200) && (topEdge !== -0.5) && (topEdge !== 0)) {
 		//Check scroll direction;
 
 		if(this.oldScroll < this.scrollY) {
 			//scrolling down
-			main.scrollIntoView({ behavior: "smooth", block: "end" })
-			main.classList.add("scrolling");
+			scrollTo.scrollIntoView({ behavior: "smooth", block: "start" })
 		}
 
 		//set previous scroll location
@@ -52,6 +52,7 @@ function autoScroll() {
 }
 
 addEventListener("scrollend", autoScroll);
+addEventListener("resize", autoScroll)
 
 //** /Auto scroll PLEASE **//
 
