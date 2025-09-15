@@ -5,6 +5,7 @@
 body, html {
 	margin: 0;
 	padding: 0;
+	height: 100%;
 }
 
 body {
@@ -119,7 +120,7 @@ h2 ~ ul {
 	box-sizing: border-box;
 	background: var(--box-bg);
 	padding: 30px 50px;
-  	min-height: 100%;
+  	height: 100%;
   	display: flex;
   	align-items: center;
   	flex-direction: column;
@@ -440,6 +441,10 @@ body:has(#gallery-container.open) {
 		display: none;
 	}
 
+	.button h3 {
+		font-size: 1.1em;
+	}
+
 	#content {
 		padding: 30px 10px 10px;
 	}
@@ -552,9 +557,9 @@ body:has(#gallery-container.open) {
 		height: 100vh;
 		width: calc(100% - 40px);
 		padding: 60px 20px;
-		background: #C6B099;
+		background: #6d5829;
 		display: block;
-		z-index: 5;
+		z-index: 10;
 	}
 
 	body:has(.button-wrap.open) {
